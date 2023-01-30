@@ -1,5 +1,12 @@
 package ie.tudublin;
 
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JOptionPane;
+
+
 public class Main
 {
 
@@ -9,15 +16,49 @@ public class Main
         processing.core.PApplet.runSketch( a, new HelloProcessing());
     }
 
-	public static void main(String[] args)
-	{
-		System.out.println("Hello world");
+	public class PlayMusic{
+	public static void main(String[] args){
 		
-		Dog penny = new Dog();
-		penny.setName("Penny");
-		penny.speak();
-
+		
+		String filepath = "OOP-2023/data/Test2.wav";
+		playMusic(filepath);
 		helloProcessing();
+		JOptionPane.showMessageDialog(null, "Press ok button to stop the music");
+		
+
+		
 	}
-	
+
+	}
+	private static void playMusic(String location) {
+
+		try{
+			File musicPath = new File(location);
+
+			if(musicPath.exists())
+			{
+				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+				Clip clip = AudioSystem.getClip();
+				clip.open(audioInput);
+				clip.start();
+			}
+			else
+			{
+				System.out.println("Cant find file");
+			}
+
+
+
+
+		} 
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+
+	}
+
 }
+	
+	
+	

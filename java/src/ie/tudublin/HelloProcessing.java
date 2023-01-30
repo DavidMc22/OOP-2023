@@ -1,6 +1,7 @@
 package ie.tudublin;
 
-import javax.swing.border.StrokeBorder;
+
+import com.jogamp.opengl.util.TimeFrameI;
 
 import processing.core.PApplet;
 
@@ -15,7 +16,7 @@ public class HelloProcessing extends PApplet
 
 	public void setup() {
 		
-		background(255,0,0);
+		background(0,0,0);
 	
 		
 	}
@@ -23,18 +24,18 @@ public class HelloProcessing extends PApplet
 	
 	public void draw()
 	{	
-		fill(255,255,0);
-		circle(250,250,400);
-		fill(0,255,255);
-		triangle(250, 0, 40, 400, 460, 400);
-		fill(255,255,255);
-		ellipse(250,200,200,120);
-		fill(0,0,0);
-		circle(250,200,90);
 		
+		strokeWeight(10);
+		delay(100);
+		fill(0, 255, 255);
+		circle(random(0,width), random(0, width), random(0,width));
+		delay(100);
+		fill(0, 0, 255);
+		circle(random(0,width), random(0, width), random(0,width));
+		fill(0, 245, 204);
+		circle(random(0,width), random(0, width), random(0,width));
 		
-
-
+	
 
 	}
 }
