@@ -16,8 +16,8 @@ public class Main
         processing.core.PApplet.runSketch( a, new HelloProcessing());
     }
 
-	public class PlayMusic{
-	public static void main(String[] args){
+	/*public class PlayMusic{
+	//public static void main(String[] args){
 		
 		
 		String filepath = "OOP-2023/data/Test2.wav";
@@ -27,10 +27,27 @@ public class Main
 		
 
 		
+	} */
+
+	public static void bugZap()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new BugZap());
+    }
+	
+	public static void main(String[] args)
+	{
+		System.out.println("Hello world");
+		
+		Dog penny = new Dog();
+		penny.setName("Penny");
+		penny.speak();
+
+		bugZap();
 	}
 
-	}
-	private static void playMusic(String location) {
+}
+	/* private static void playMusic(String location) {
 
 		try{
 			File musicPath = new File(location);
@@ -60,5 +77,5 @@ public class Main
 
 }
 	
-	
+	*/
 	
