@@ -35,8 +35,8 @@ public class Star {
         float x = PApplet.map(xG, -5, 5, border, p.width - border);
         float y = PApplet.map(yG, -5, 5, border, p.height - border);
 
-        p.stroke(255, 255, 0);
-        p.line(x, y-5, x, y +5);
+        p.stroke(255, 255, 255);
+        p.line(x, y-4, x, y +4);
         p.line(x-5, y, x+5, y);
         p.stroke(255, 0, 0);
         p.circle(x, y, absMag);
