@@ -99,6 +99,7 @@ public class Audio1 extends PApplet
                 stroke(c, 255, 255);
                 float f = ab.get(i) * halfH;
                 line(i, halfH + f, halfH - f, i);
+                
             }          
             break;
         case 2:
