@@ -35,7 +35,7 @@ public class Audio1 extends PApplet
 
     public void settings()
     {
-        size(1024, 1000, P3D);
+        size(500, 500);
         //fullScreen(P3D, SPAN);
     }
 
@@ -43,12 +43,12 @@ public class Audio1 extends PApplet
     {
         minim = new Minim(this);
         //Uncomment this to use the microphone
-        ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
-        ab = ai.mix; 
+        //ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
+        //ab = ai.mix; 
 
         // And comment the next two lines out
-        // ap = minim.loadFile("heroplanet.mp3", 1024);
-        // ap.play();
+         ap = minim.loadFile("heroplanet.mp3", 1024);
+        ap.play();
         ab = ap.mix;
         colorMode(HSB);
 
@@ -92,8 +92,22 @@ public class Audio1 extends PApplet
                 }
                 break;
         case 1:
-            background(0);            
+            background(0);  
+            for(int i = 0; i < ab.size() ; i ++)
+            {
+                float c = map(i, 0, ab.size(), 0, 255);
+                stroke(c, 255, 255);
+                float f = ab.get(i) * halfH;
+                line(i, halfH + f, halfH - f, i);
+            }          
             break;
+        case 2:
+        {
+            
+            background(0);
+            break;	
+            
+    }
 
         }
         
@@ -101,7 +115,7 @@ public class Audio1 extends PApplet
 
         
         // Other examples we made in the class
-        /*
+        /* 
         stroke(255);
         fill(100, 255, 255);        
         
