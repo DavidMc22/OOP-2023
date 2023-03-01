@@ -68,7 +68,10 @@ public class Audio2 extends PApplet
       float freq = fft.indexToFreq(highestIndex);
       fill(255,255,255);
       textSize(20);
-      text("Freq:" + freq , 10, 40);
+      text("Freq:" + freq , 100, 150);
+
+      PitchSpeller ps = new PitchSpeller();
+		  text( "MusicNote:" + ps.spell(freq),100,200);
 
       float y = map(freq, 1000.0f, 2500.0f, height, 0);
       //lerpedY = lerp(lerpedY, y, 0.1f);
@@ -90,6 +93,43 @@ public class Audio2 extends PApplet
 
         }
         
+        float[] frequencies = {293.66f, 329.63f, 369.99f, 392.00f, 440.00f, 493.88f, 554.37f, 587.33f, 659.25f, 739.99f, 783.99f, 880.00f, 987.77f, 1108.73f, 1174.66f};                                                              
+    String[] spellings = {"D,", "E,", "F,", "G,", "A,", "B,", "C", "D", "E", "F", "G", "A", "B","c", "d", "e", "f", "g", "a", "b", "c'", "d'", "e'", "f'", "g'", "a'", "b'", "c''", "d''"};
+
+
+    public String spell(float frequency){
+        
+        int MIndex = -1;
+        float MDiff = Float.MAX_VALUE;
+
+        for(int i = 0; i < frequencies.length; i++){
+
+            float diff = Math.abs(frequency - frequencies[i]);
+            if(diff < MDiff){
+                MDiff = diff;
+                MIndex = i;
+            }
+
+
+
+        }
+
+
+        return spellings[MIndex];
+        
+    }
+
+
+public static void main(String[] args)
+	{
+		PitchSpeller ps = new PitchSpeller();
+		System.out.println(ps.spell(330));
+		System.out.println(ps.spell(420));
+		System.out.println(ps.spell(1980));
+
+	}
+          
+
 
 
         
