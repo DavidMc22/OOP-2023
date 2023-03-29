@@ -10,6 +10,7 @@ public class Bullet {
     PVector forward;
     PApplet p;
     int c;
+    PVector fireRate;
 
     public Bullet(float x, float y, float rot, int c, PApplet p)
     {
